@@ -1,0 +1,21 @@
+{
+  "name": "ga2-0ff561",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "astral-sh.uv",
+        "ms-python.python"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      }
+    }
+  },
+  "postCreateCommand": "if command -v uv >/dev/null 2>&1; then uv pip install fastapi; else python -m pip install --upgrade pip && pip install fastapi uvicorn; fi",
+  "forwardPorts": [8000],
+  "remoteUser": "vscode"
+}
